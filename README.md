@@ -102,6 +102,3 @@ When the `http://127.0.0.1:8080/` URL is visited a user has to enter their usern
   - Database Security: Using SQLite for local development.
   - Environment Variables: Sensitive information such as the DockerHub credentials is stored as GitHub Secrets.
   - Code Reviews: Implemented code reviews and best practices to ensure secure coding practices are followed
-  - Role-Based Access Control (RBAC): Kubernetes RBAC is set up to restrict access to the Kubernetes cluster.
-  - Security Scans: Tools like OWASP ZAP can be utilized to perform security testing on the API.
-  - Security testing was performed using tools like OWASP ZAP to identify vulnerabilities in the Flask API before deployment.
