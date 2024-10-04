@@ -35,7 +35,7 @@ jobs:
 
     - name: Run OWASP Dependency-Check
       run: |
-        docker run --rm -v $(pwd):/src -v $(pwd)/reports:/report owasp/dependency-check --project "Flask API" --scan /src --out /report
+        docker run --rm -v $(pwd):/src -v $(pwd)/reports:/report owasp/dependency-check-10.0.4 --project "Flask API" --scan /src --out /report
 
     - name: Upload OWASP Dependency-Check Report
       uses: actions/upload-artifact@v4
