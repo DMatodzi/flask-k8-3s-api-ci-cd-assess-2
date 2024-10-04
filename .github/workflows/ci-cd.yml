@@ -24,7 +24,7 @@ jobs:
         docker build . -t treasuredm/flask-api:latest
         docker push treasuredm/flask-api:latest
 
-  # Add the OWASP Dependency-Check Job
+  # OWASP Dependency-Check Job
   security-scan:
     needs: build
     runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
         docker run --rm -v $(pwd):/src -v $(pwd)/report:/report owasp/dependency-check --project "Flask API" --scan /src --out /report
 
     - name: Upload OWASP Dependency-Check Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: dependency-check-report
         path: report
