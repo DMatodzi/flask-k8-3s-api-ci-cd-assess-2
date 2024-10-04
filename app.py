@@ -19,6 +19,32 @@ class User(db.Model):
 with app.app_context():
     db.create_all()  # This will create the SQLite database and tables
 
+# Home route - Displays a form to create a new user
+@app.route("/", methods=["GET", "POST"])
+def main():
+    if request.method == "POST":
+        username = request.form["username"]
+        if username:
+            new_user = User(username=username)
+            db.session.add(new_user)
+            db.session.commit()
+            return f"Welcome! User {username} has been added."
+    
+    # Render a simple HTML form
+    form_html = '''
+    <form method="POST" action="/">
+        <label for="username">Enter your name:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Submit</button>
+    </form>
+    '''
+    return render_template_string(form_html)
+
+if existing_user:
+    # Update the existing user record
+    existing_user.some_field = new_value
+    db.session.commit()
+
 @app.route("/")
 def main():
     return "Welcome!"
