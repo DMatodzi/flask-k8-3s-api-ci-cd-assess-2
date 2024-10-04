@@ -10,6 +10,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable track modificati
 
 db = SQLAlchemy(app)
 
+#Creating a simple model to test database functionality.
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+
+# Create the database tables
+with app.app_context():
+    db.create_all()  # This will create the SQLite database and tables
+
 @app.route("/")
 def main():
     return "Welcome!"
@@ -21,12 +30,7 @@ def hello():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
 
-#Creating a simple model to test datbase functionality.
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
 
 
-# Create the database tables
-with app.app_context():
-    db.create_all()  # This will create the SQLite database and tables
+
+
