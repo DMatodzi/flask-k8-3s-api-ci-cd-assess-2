@@ -46,3 +46,8 @@ git remote -v
 [200~git remote set-url origin https://github.com/DMatodzi/flask-k8-3s-api-ci-cd-assess-2
 git remote set-url origin https://github.com/DMatodzi/flask-k8-3s-api-ci-cd-assess-2
 git remote -v
+git add .
+git commit -m "Initial commit for flask-k8-3s-api-ci-cd-assess-2"
+git push -u origin main
+git branch
+git push -u origin master
