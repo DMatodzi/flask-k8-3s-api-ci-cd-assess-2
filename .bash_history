@@ -51,3 +51,15 @@ git commit -m "Initial commit for flask-k8-3s-api-ci-cd-assess-2"
 git push -u origin main
 git branch
 git push -u origin master
+cd flask-k8-3s-api-ci-cd-assess-2
+cd ..
+docker run --rm -v $(pwd):/src -v $(pwd)/reports:/report owasp/dependency-check --project "Flask API" --scan /src --out /report
+[200~docker run --rm -v "$(pwd):/src" -v "$(pwd)/reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
+docker run --rm -v "$(pwd):/src" -v "$(pwd)/reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
+[200~docker run --rm -v "$(pwd):/src" -v "$(pwd)/reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
+docker run --rm -v "$(pwd):/src" -v "$(pwd)/reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
+clear
+docker run --rm -v "C:\Users\Dzang\OneDrive\Documentos\CyberSafe Foundation - Cybersecurity\Soft Skills_Week 15 - Assessment_2\flask-k8-3s-api-ci-cd-assess-2:/src" -v "C:\Users\Dzang\OneDrive\Documentos\CyberSafe Foundation - Cybersecurity\Soft Skills_Week 15 - Assessment_2\flask-k8-3s-api-ci-cd-assess-2\reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
+docker run hello-world
+docker run --rm -v "C:/Users/Dzang/OneDrive/Documentos/CyberSafe Foundation - Cybersecurity/Soft Skills Week 15 - Assessment 2/flask-k8-3s-api-ci-cd-assess-2:/src" -v "C:/Users/Dzang/OneDrive/Documentos/CyberSafe Foundation - Cybersecurity/Soft Skills Week 15 - Assessment 2/flask-k8-3s-api-ci-cd-assess-2/reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
+docker run --rm -v "C:/Users/Dzang/OneDrive/Documentos/CyberSafe Foundation - Cybersecurity/Soft Skills Week 15 - Assessment 2/flask-k8-3s-api-ci-cd-assess-2:/src" -v "C:/Users/Dzang/OneDrive/Documentos/CyberSafe Foundation - Cybersecurity/Soft Skills Week 15 - Assessment 2/flask-k8-3s-api-ci-cd-assess-2/reports:/report" owasp/dependency-check --project "Flask API" --scan /src --out /report
