@@ -137,3 +137,4 @@ When the `http://127.0.0.1:8080/` URL is visited a user has to enter their usern
   - Database Security: Using SQLite for local development as well as to store users who visit the URL, in order to track them.
   - Environment Variables: Sensitive information such as the DockerHub credentials is stored as GitHub Secrets.
   - Code Reviews: Implemented code reviews and best practices to ensure secure coding practices are followed
+  - Used OWASP dependency check for DAST.
