@@ -66,21 +66,25 @@ This project aims to develop, containerize, deploy, and secure a Flask API appli
 6.	Deploy on Kubernetes (KinD)
     - Install [KinD](https://kind.sigs.k8s.io/)
     - Create a `deployment.yaml` and `service.yaml`
-    - Apply the Kubernetes manifests to deploy app:
+    - Apply the Kubernetes manifests to deploy the app:
       ```bash
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
       ```
 
 ## 2. The API’s functionality, how it was containerized and deployed on Kubernetes
- ### 2.1 Functinality
+ ### 2.1 Functionality
  The Flask API serves as a simple web application with the following endpoints:
- - GET /: Returns a welcome message.
+ - GET /: Textbox for user to write username and then returns a 'Welcome User!' message.
  - GET /how are you: Responds with a friendly message.
+ - GET /users: Responds with the users stored in the database.
+   
+When the `http://127.0.0.1:8080/` URL is visited a user has to enter their username which is then automatically stored in the database. So each time a person visits the home page and inputs their user name, the username will automatically be stored in the database
+
  ### 2.2 Containerization Process
-  The application is containerized using Docker, allowing for easy deployment across various environments. The `Dockerfile` specifies the base image and sets up the necessary environment for running the Flask application.
+  The application is containerized using Docker, allowing easy deployment across various environments. The `Dockerfile` specifies the base image and sets up the environment for running the Flask application.
  ### 2.3 Deployment on Kubernetes
- The application is deployed on Kubernetes using KinD (Kubernetes in Docker). The deployment consists of a `deployment` and `service` YAML files that define how the application should run in the cluster.
+ The application is deployed on Kubernetes using KinD (Kubernetes in Docker). The deployment consists of `deployment` and `service` YAML files that define how the application should run in the cluster.
 
  ## 3. CI/CD Process using GitHub Actions
  
@@ -88,13 +92,16 @@ This project aims to develop, containerize, deploy, and secure a Flask API appli
   1.	Code is checked out from the repository.
   2.	Docker Buildx is set up for building the Docker image.
   3.	DockerHub is Logged into using secrets.
-  4.	The Docker image is built and pushed to Docker Hub.
+  4.	The Docker image is built and pushed to DockerHub.
   5.	Kubernetes manifests are applied to deploy the application.
 
  ## 4. Security measures implemented
  
  To enhance the security of the API, the following measures have been implemented:
 
+  - Database Security: Using SQLite for local development.
   - Environment Variables: Sensitive information such as the DockerHub credentials is stored as GitHub Secrets.
+  - Code Reviews: Implemented code reviews and best practices to ensure secure coding practices are followed
   - Role-Based Access Control (RBAC): Kubernetes RBAC is set up to restrict access to the Kubernetes cluster.
   - Security Scans: Tools like OWASP ZAP can be utilized to perform security testing on the API.
+  - Security testing was performed using tools like OWASP ZAP to identify vulnerabilities in the Flask API before deployment.
