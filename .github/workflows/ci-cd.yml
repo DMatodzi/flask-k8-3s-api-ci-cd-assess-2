@@ -33,6 +33,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Run OWASP Dependency-Check
       run: |
         docker run --rm -v $(pwd):/src -v $(pwd)/report:/report owasp/dependency-check --project "Flask API" --scan /src --out /report
